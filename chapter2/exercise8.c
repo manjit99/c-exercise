@@ -11,28 +11,30 @@
 //Grade is 6 if only one condition is met
 //Grade is 5 if none of the conditions are met
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 int main()
 {
-        int hardness;
+        int hardness, tensile_strength;
         float carbon_content;
-        int tensile_strength;
-        printf("enter the values of hardness,carbon content and tensile strength:\n");
-        scanf("%d\n%f\n%d",&hardness,&carbon_content,&tensile_strength);
-        if((hardness>50)&&(carbon_content<0.7)&&(tensile_strength>5600))
-                printf("Grade is 10\n");
-        else if((hardness>50)&&(carbon_content<0.7)&&(tensile_strength<=5600))
-                printf("grade is 9\n");
-        else if((hardness<=50)&&(carbon_content<0.7)&&(tensile_strength>5600))
-                printf("grade is 8\n");
-        else if((hardness>50)&&(carbon_content>=0.7)&&(tensile_strength>5600))
-                printf("grade is 7\n");
-        else if((hardness>50)||(carbon_content<0.7)||(tensile_strength>5600))
-                printf("Grade is 6\n");
-        else if((hardness<=50)&&(carbon_content>=0.7)&&(tensile_strength<=5600))
-                printf("Grade is 5\n");
-        else
-                printf("Not gradeable\n");
-}
 
+        int cond1, cond2, cond3;
+
+        printf("enter the values of hardness,carbon content and tensile strength:\n");
+        scanf("%d\n%f\n%d", &hardness, &carbon_content, &tensile_strength);
+
+        cond1 = hardness > 50;
+        cond2 = carbon_content < 0.7;
+        cond3 = tensile_strength > 5600;
+
+        printf("Grade is ");
+
+        if (cond1 && cond2 && cond3) printf("10");
+        else if (cond1 && cond2) printf("9");
+        else if (cond2 && cond3) printf("8");
+        else if (cond1 && cond3) printf("7");
+        else if (cond1 || cond2 || cond3) printf("6");
+        else printf("5");
+
+        printf("\n");
+}
