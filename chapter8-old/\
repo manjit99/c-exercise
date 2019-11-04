@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int menu(char);
+
+int main()
+{
+	int x[4][4]={};
+	int y,o;
+
+	for(int row=0;row<4;row++)
+	{
+		for(int col=0;col<4;col++)
+		{
+			if(row==3&&col==3)
+			{
+				x[row][col]=" ";
+			}
+			else
+			{
+				for(int f=15;f>0;f--)
+                        	{
+                                	x[row][col]=f;
+                        	}
+			}
+
+		}
+	}
+
+	for(int row=0;row<4;row++)
+        {
+                for(int col=0;col<4;col++)
+                {
+                        o=x[row][col];
+			printf("%d ",o);
+                }
+		printf("\n");
+        }
+
+}
